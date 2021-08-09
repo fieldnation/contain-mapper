@@ -19,8 +19,9 @@
         "irc": "irc://irc.freenode.net/contain"
     },
     "require": {
+        "php": "^7.3",
         "laminas/laminas-eventmanager": "~3.3.1",
-        "php": "^7.3"
+        "laminas/laminas-stdlib": "~3.5.0"
     },
     "suggest": {
         "zendframework/zend-db": "~2.2",
