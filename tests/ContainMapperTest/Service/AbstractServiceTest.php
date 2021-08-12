@@ -14,12 +14,12 @@ class AbstractServiceTest extends \PHPUnit_Framework_TestCase
 
     public function testGetEventManager()
     {
-        $this->assertInstanceOf('Zend\EventManager\EventManager', $this->service->getEventManager());
+        $this->assertInstanceOf('Laminas\EventManager\EventManager', $this->service->getEventManager());
     }
 
     public function testSetEventManager()
     {
-        $em = new \Zend\EventManager\EventManager();
+        $em = new \Laminas\EventManager\EventManager();
         $this->assertSame($em, $this->service->setEventManager($em)->getEventManager());
     }
 

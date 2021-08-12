@@ -20,8 +20,8 @@
 namespace ContainMapper\Service;
 
 use ContainMapper\AbstractQuery;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\EventManagerInterface;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\EventManagerInterface;
 
 /**
  * Abstract Service

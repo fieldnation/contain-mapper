@@ -21,7 +21,7 @@ namespace ContainMapper;
 
 use Contain\Entity\EntityInterface;
 use ContainMapper\Driver\AbstractDriver;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\Stdlib\ArrayUtils;
 
 /**
  * Mapper which links a data source to Contain entities.
