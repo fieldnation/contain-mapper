@@ -55,7 +55,7 @@ class Mapper extends Service\AbstractService
      * @param   string              $entity Entity Class name this mapper hydrates
      * @param   AbstractDriver|null $driver
      */
-    public function __construct($entity, AbstractDriver $driver = null)
+    public function __construct($entity, ?AbstractDriver $driver = null)
     {
         $this->entity = (string) $entity;
         $this->driver = $driver;
@@ -124,7 +124,7 @@ class Mapper extends Service\AbstractService
      *
      * @return EntityInterface
      */
-    public function hydrate($data = array(), EntityInterface $entity = null, $hydrationMode = AbstractDriver::HYDRATION_MODE_RECORD)
+    public function hydrate($data = array(), ?EntityInterface $entity = null, $hydrationMode = AbstractDriver::HYDRATION_MODE_RECORD)
     {
         $data = ArrayUtils::iteratorToArray($data);
 

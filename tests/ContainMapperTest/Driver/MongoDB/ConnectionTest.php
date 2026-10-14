@@ -4,10 +4,10 @@ namespace ContainMapperTest\Driver\MongoDB;
 use ContainMapper\Driver\MongoDB;
 use Mongo;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('mongo')) {
             $this->markTestSkipped(

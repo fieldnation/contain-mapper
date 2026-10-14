@@ -3,11 +3,11 @@ namespace ContainMapperTest\Driver\ZendDb;
 
 use ContainMapper\Driver\ZendDb;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends \PHPUnit\Framework\TestCase
 {
     protected $adapter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $mockConnection = $this->getMock('Zend\Db\Adapter\Driver\ConnectionInterface');
         $mockDriver = $this->getMock('Zend\Db\Adapter\Driver\DriverInterface');

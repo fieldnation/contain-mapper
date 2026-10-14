@@ -5,12 +5,12 @@ use ContainMapper\Resolver;
 use ContainTest\Entity\SampleChildEntity;
 use ContainTest\Entity\SampleMultiTypeEntity;
 
-class ResolverTest extends \PHPUnit_Framework_TestCase
+class ResolverTest extends \PHPUnit\Framework\TestCase
 {
     protected $entity;
     protected $resolver;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->entity = new SampleMultiTypeEntity(array('entity' => array('firstName' => 'test')));
         $this->resolver = new Resolver('entity.firstName');
@@ -18,10 +18,8 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testConstruct()
     {
-        $this->setExpectedException(
-            'InvalidArgumentException',
-            'Resolve failed with invalid or non-existent query.'
-        );
+        $this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessage('Resolve failed with invalid or non-existent query.');
 
         $entity = new Resolver('');
     }
@@ -63,10 +61,8 @@ class ResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testScanListWhenEmpty()
     {
-        $this->setExpectedException(
-            'InvalidArgumentException',
-            'Resolver query \'entity.firstName\' failed on ContainTest\Entity\SampleMultiTypeEntity. Index 0 not set'
-        );
+        $this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessage('Resolver query \'entity.firstName\' failed on ContainTest\Entity\SampleMultiTypeEntity. Index 0 not set');
 
         $this->resolver->scan($this->entity, 'listEntity.0');
     }

@@ -6,12 +6,12 @@ use ContainTest\Entity\SampleChildEntity;
 use ContainTest\Entity\SampleEntity;
 use Memcached as PHPMemcached;
 
-class DriverTest extends \PHPUnit_Framework_TestCase
+class DriverTest extends \PHPUnit\Framework\TestCase
 {
     protected $driver;
     protected $entity;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('memcached')) {
             $this->markTestSkipped(
@@ -37,7 +37,7 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new SampleEntity();
         $this->driver->persist($entity);
-        $this->assertTrue((boolean) $entity->getExtendedProperty('_id'));
+        $this->assertTrue((bool) $entity->getExtendedProperty('_id'));
     }
 
     public function testDelete()

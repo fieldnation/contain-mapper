@@ -6,12 +6,12 @@ use ContainTest\Entity\SampleEntity;
 use ContainTest\Entity\SampleMultiTypeEntity;
 use Mongo;
 
-class DriverTest extends \PHPUnit_Framework_TestCase
+class DriverTest extends \PHPUnit\Framework\TestCase
 {
     protected $driver;
     protected $entity;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('mongo')) {
             $this->markTestSkipped(
@@ -80,7 +80,7 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new SampleEntity();
         $this->driver->persist($entity);
-        $this->assertTrue((boolean) $entity->getExtendedProperty('_id'));
+        $this->assertTrue((bool) $entity->getExtendedProperty('_id'));
     }
 
     public function testPersistAutoIdIsMongoId()

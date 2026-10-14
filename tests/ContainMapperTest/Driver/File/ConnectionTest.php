@@ -3,7 +3,7 @@ namespace ContainMapperTest\Driver\File;
 
 use ContainMapper\Driver\File;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends \PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
@@ -13,10 +13,8 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function testNonExisting()
     {
-        $this->setExpectedException(
-            'ContainMapper\Exception\InvalidArgumentException',
-            '$path is not a directory'
-        );
+        $this->expectException('ContainMapper\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('$path is not a directory');
         $connection = new File\Connection('/broken/path/shouldnt/exist');
     }
 }

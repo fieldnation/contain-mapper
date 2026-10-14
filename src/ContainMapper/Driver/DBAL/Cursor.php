@@ -79,6 +79,7 @@ class Cursor implements Iterator
      *
      * @return  void
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->iterator = 0;
@@ -113,6 +114,7 @@ class Cursor implements Iterator
      *
      * @return  array|null
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->driver->convertResultRow($this->cache[$this->iterator]);
@@ -123,6 +125,7 @@ class Cursor implements Iterator
      *
      * @return  integer
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->iterator;
@@ -133,6 +136,7 @@ class Cursor implements Iterator
      *
      * @return  void
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $this->iterator++;
@@ -144,6 +148,7 @@ class Cursor implements Iterator
      *
      * @return  boolean
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return isset($this->cache[$this->iterator]);

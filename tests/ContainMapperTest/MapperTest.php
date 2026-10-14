@@ -4,12 +4,12 @@ namespace ContainMapperTest;
 use ContainTest\Entity\SampleMultiTypeEntity;
 use Mongo;
 
-class MapperTest extends \PHPUnit_Framework_TestCase
+class MapperTest extends \PHPUnit\Framework\TestCase
 {
     protected $mapper;
     protected $entity;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('mongo')) {
             $this->markTestSkipped(
@@ -168,28 +168,22 @@ class MapperTest extends \PHPUnit_Framework_TestCase
 
     public function testIncrementWhenNotPersisted()
     {
-        $this->setExpectedException(
-            'ContainMapper\Exception\InvalidArgumentException',
-            'Cannot increment properties as $entity has not been persisted.'
-        );
+        $this->expectException('ContainMapper\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Cannot increment properties as $entity has not been persisted.');
         $this->mapper->increment($this->entity, 'integer', 1);
     }
 
     public function testPushWhenNotPersisted()
     {
-        $this->setExpectedException(
-            'ContainMapper\Exception\InvalidArgumentException',
-            'Cannot push to $entity as this is an update operation and $entity has not been persisted.'
-        );
+        $this->expectException('ContainMapper\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Cannot push to $entity as this is an update operation and $entity has not been persisted.');
         $this->mapper->push($this->entity, 'integer', 1);
     }
 
     public function testPullWhenNotPersisted()
     {
-        $this->setExpectedException(
-            'ContainMapper\Exception\InvalidArgumentException',
-            'Cannot push to $entity as this is an update operation and $entity has not been persisted.'
-        );
+        $this->expectException('ContainMapper\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Cannot push to $entity as this is an update operation and $entity has not been persisted.');
         $this->mapper->pull($this->entity, 'integer', 1);
     }
 
