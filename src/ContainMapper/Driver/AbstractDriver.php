@@ -80,7 +80,7 @@ abstract class AbstractDriver
      */
     public function isPersisted(EntityInterface $entity)
     {
-        return (boolean) $entity->isPersisted(); // defaults to Contain internal flag
+        return (bool) $entity->isPersisted(); // defaults to Contain internal flag
     }
 
     /**

@@ -4,12 +4,12 @@ namespace ContainMapperTest\Driver\ZendDb;
 use ContainTest\Entity\SampleChildEntity;
 use ContainTest\Entity\SampleMultiTypeEntity;
 
-class DriverTest extends \PHPUnit_Framework_TestCase
+class DriverTest extends \PHPUnit\Framework\TestCase
 {
     protected $driver;
     protected $entity;
 
-    public function setUp()
+    public function setUp(): void
     {
         $mockConnection = $this->getMock('Zend\Db\Adapter\Driver\ConnectionInterface');
         $mockDriver = $this->getMock('Zend\Db\Adapter\Driver\DriverInterface');

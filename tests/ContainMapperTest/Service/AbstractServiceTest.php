@@ -3,11 +3,11 @@ namespace ContainMapperTest\Service;
 
 use ContainMapperTest\SampleQuery;
 
-class AbstractServiceTest extends \PHPUnit_Framework_TestCase
+class AbstractServiceTest extends \PHPUnit\Framework\TestCase
 {
     protected $service;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->service = new SampleService();
     }

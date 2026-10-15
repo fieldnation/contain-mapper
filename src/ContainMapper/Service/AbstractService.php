@@ -96,7 +96,7 @@ abstract class AbstractService extends AbstractQuery
      *
      * @return self
      */
-    public function setEventManager(EventManagerInterface $eventManager = null)
+    public function setEventManager(?EventManagerInterface $eventManager = null)
     {
         $this->eventManager = $eventManager;
         return $this;

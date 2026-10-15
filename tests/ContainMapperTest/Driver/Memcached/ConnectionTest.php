@@ -4,10 +4,10 @@ namespace ContainMapperTest\Driver\Memcached;
 use ContainMapper\Driver\Memcached;
 use Memcached as PHPMemcached;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('memcached')) {
             $this->markTestSkipped(

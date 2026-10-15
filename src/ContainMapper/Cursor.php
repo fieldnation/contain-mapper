@@ -119,6 +119,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  void
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         if ($this->cursor instanceof Iterator) {
@@ -133,6 +134,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  integer
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         if (is_array($this->cursor)) {
@@ -147,6 +149,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  mixed
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         if ($this->cursor instanceof Iterator) {
@@ -176,6 +179,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  integer
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         if ($this->cursor instanceof Iterator) {
@@ -190,6 +194,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  void
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         if ($this->cursor instanceof Iterator) {
@@ -206,6 +211,7 @@ class Cursor extends Service\AbstractService implements Iterator
      *
      * @return  boolean
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         if ($this->cursor instanceof Iterator) {

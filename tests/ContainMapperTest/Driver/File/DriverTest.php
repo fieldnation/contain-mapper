@@ -4,12 +4,12 @@ namespace ContainMapperTest\Driver\File;
 use ContainMapper\Driver\File;
 use ContainTest\Entity\SampleChildEntity;
 
-class DriverTest extends \PHPUnit_Framework_TestCase
+class DriverTest extends \PHPUnit\Framework\TestCase
 {
     protected $driver;
     protected $entity;
 
-    public function setUp()
+    public function setUp(): void
     {
         $connection = new File\Connection('/tmp');
         $this->driver = new File\Driver($connection);

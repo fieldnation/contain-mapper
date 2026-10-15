@@ -1,11 +1,11 @@
 <?php
 namespace ContainMapperTest;
 
-class AbstractQueryTest extends \PHPUnit_Framework_TestCase
+class AbstractQueryTest extends \PHPUnit\Framework\TestCase
 {
     protected $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new SampleQuery();
     }
@@ -69,10 +69,7 @@ class AbstractQueryTest extends \PHPUnit_Framework_TestCase
 
     public function testPropertiesInvalid()
     {
-        $this->setExpectedException(
-            'InvalidArgumentException',
-            ''
-        );
+        $this->expectException('InvalidArgumentException');
         $this->query->properties(new \stdclass());
     }
 }
