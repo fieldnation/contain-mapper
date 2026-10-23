@@ -35,12 +35,12 @@ use Iterator;
 class Cursor implements Iterator
 {
     /**
-     * @var Doctrine\DBAL\Statement
+     * @var \Doctrine\DBAL\Result
      */
     protected $stmt;
 
     /**
-     * @var ContainMapper\Driver\PDO\Driver
+     * @var Driver
      */
     protected $driver;
 
@@ -62,7 +62,8 @@ class Cursor implements Iterator
     /**
      * Constructor
      *
-     * @param   Doctrine\DBAL\Statement
+     * @param   \Doctrine\DBAL\Result $stmt
+     * @param   Driver $driver
      * @return  void
      */
     public function __construct($stmt, Driver $driver)
@@ -70,8 +71,6 @@ class Cursor implements Iterator
         $this->driver   = $driver;
         $this->stmt     = $stmt;
         $this->iterator = 0;
-
-        $this->stmt->setFetchMode(\PDO::FETCH_ASSOC);
     }
 
     /**
@@ -101,7 +100,7 @@ class Cursor implements Iterator
             return;
         }
 
-        if (!$row = $this->stmt->fetch()) {
+        if (!$row = $this->stmt->fetchAssociative()) {
             $this->eod = true;
             return;
         }

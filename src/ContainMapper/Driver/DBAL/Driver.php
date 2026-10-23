@@ -273,11 +273,11 @@ class Driver extends AbstractDriver {
             $colNum++;
         }
 
-        $stmt = $qb->execute();
+        $stmt = $qb->executeQuery();
 
         $this->resetQueryBuilder();
 
-        return $stmt->fetch();
+        return $stmt->fetchAssociative();
     }
 
     public function delete(EntityInterface $entity)
@@ -322,7 +322,7 @@ class Driver extends AbstractDriver {
             $this->andWhere($column,$required);
         }
 
-        $stmt = $qb->execute();
+        $stmt = $qb->executeQuery();
         $this->resetQueryBuilder();
 
         return new Cursor($stmt, $this);

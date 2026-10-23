@@ -8,12 +8,23 @@ class DriverTest extends \PHPUnit\Framework\TestCase
 {
     protected $driver;
     protected $entity;
+    protected $directory;
 
     public function setUp(): void
     {
-        $connection = new File\Connection('/tmp');
+        // Isolated directory: find() reads every *.json file, so a shared dir like /tmp leaks unrelated files in.
+        $this->directory = sys_get_temp_dir() . '/contain-mapper-file-driver-' . uniqid();
+        mkdir($this->directory);
+
+        $connection = new File\Connection($this->directory);
         $this->driver = new File\Driver($connection);
         $this->entity = new SampleChildEntity(array('firstName' => 'test'));
+    }
+
+    public function tearDown(): void
+    {
+        array_map('unlink', glob($this->directory . '/*'));
+        rmdir($this->directory);
     }
 
     public function testPersist()
